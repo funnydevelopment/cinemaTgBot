@@ -28,7 +28,7 @@ MovieBot позволяет пользователям получать след
 
 - Клонируйте репозиторий:
 ```bash
-git clone https://github.com/yourusername/cinemaTgBot.git
+git clone https://github.com/ funnydevelopment/cinemaTgBot.git
 ```
 - Установите зависимости:
 ```bash
