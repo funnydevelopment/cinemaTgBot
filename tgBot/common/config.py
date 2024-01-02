@@ -13,6 +13,7 @@ class HTTPClient:
     API_URL: str
     API_KEY: str
     API_TOKEN: str
+    MOVIE_URL: str
 
 
 @dataclass
@@ -31,5 +32,6 @@ def load_config(path: str) -> Config:
             API_URL=env.str("API_URL"),
             API_KEY=env.str("API_KEY"),
             API_TOKEN=env.str("API_TOKEN"),
+            MOVIE_URL=env.str("MOVIE_URL"),
         ),
     )
