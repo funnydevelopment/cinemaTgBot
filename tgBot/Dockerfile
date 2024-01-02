@@ -9,7 +9,7 @@ RUN pip install --no-cache-dir -r /requirements.txt
 
 WORKDIR /app
 COPY bot.py .
-COPY tgBot/config ./config
-COPY tgBot/src ./src
+COPY common ./config
+COPY src ./src
 
 USER wagtail

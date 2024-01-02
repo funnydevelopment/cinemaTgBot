@@ -1,10 +1,10 @@
 import asyncio
 import logging
 
-from tgBot.config import bot, dp
-from tgBot.database.crud import create_movie_request_table, create_user_table
-from tgBot.src.handlers import router
-from tgBot.common import MovieRequestCreateError, UserCreateError
+from common.create_bot import bot, dp
+from database.crud import create_movie_request_table, create_user_table
+from src.handlers import router
+from common.exceptions import MovieRequestCreateError, UserCreateError
 
 
 logger = logging.getLogger(__name__)
