@@ -16,7 +16,7 @@ HELP_TEXT = (
     "<b><i>/history.</i></b> - to get search history"
 )
 
-STATS_TEXT = "Number of user requests: {user_name}."
+STATS_TEXT = "Number of user requests: <b><u>{total_count}.</u></b>"
 
 HISTORY_TEXT = "User history: {user_name}.\n"
 
