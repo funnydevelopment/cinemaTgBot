@@ -29,7 +29,6 @@ class MovieAPIClient:
         try:
             parsed_data["title"] = url_response[0]["original_title"]
             parsed_data["overview"] = url_response[0]["overview"]
-            parsed_data["poster"] = url_response[0]["poster_path"]
             parsed_data["rating"] = url_response[0]["vote_average"]
             parsed_data["movie_link"] = f'{self.movie_url}{url_response[0]["id"]}'
         except IndexError as error:
