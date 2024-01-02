@@ -21,10 +21,10 @@ STATS_TEXT = "Number of user requests: {user_name}."
 HISTORY_TEXT = "User history: {user_name}.\n"
 
 SEARCH_RESULT_TEXT = (
-    "Title: <b><i>{name}</i></b>\n"
-    "Rating: <b><i>{rating}</i></b>\n"
-    "Overview: <i>{overview}</i>\n"
-    "Watch trailer: <i>{link}</i>"
+    "Title📍: <b><i>{name}</i></b>\n\n"
+    "Rating🔎: <b><i>{rating}</i></b>\n\n"
+    "Overview📝: <i>{overview}</i>\n\n"
+    "Watch trailer🖼: <i>{link}</i>"
 )
 
 FAILED_RESULT_TEXT = (
