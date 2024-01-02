@@ -7,3 +7,9 @@ services:
     command: python bot.py
     environment:
       BOT_TOKEN: $BOT_TOKEN
+      API_URL: $API_URL
+      API_KEY: $API_KEY
+      API_TOKEN: $API_TOKEN
+      MOVIE_URL: $MOVIE_URL
+    volumes:
+      - /database/cinemadb.db

@@ -9,7 +9,9 @@ RUN pip install --no-cache-dir -r /requirements.txt
 
 WORKDIR /app
 COPY bot.py .
-COPY common ./config
+COPY common ./common
+COPY database ./database
+RUN chmod -R 777 ./database
 COPY src ./src
 
 USER wagtail
