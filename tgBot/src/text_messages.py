@@ -1,19 +1,24 @@
 HELLO_TEXT = (
-    "Здравствуйте, {user_name}!\n"
-    "Я здесь, чтобы по поиску фильмов. Просто введите название фильма, а я постараюсь "
-    "найти этот фильм!\n\n"
-    "Для получения дополнительной информации введите команду <b><i>/help</i></b> "
-    'или нажмите на кнопку <b><i>"Инструкция"</i></b>.'
+    "Hello, {user_name}!\n"
+    "I'm here to help you find movies. Just enter the movie title, and I'll do my best "
+    "to locate that movie!\n\n"
+    "For additional information, type the command <b><i>/help</i></b> "
+    'or click the <b><i>"Instructions"</i></b> button.'
 )
 
 HELP_TEXT = (
-    "Данный бот находит фильм, описание, постер и рейтинг.\n"
-    "Также бот записывает историю поиска и ведет статистику."
+    "This bot finds movies, provides descriptions, posters, and ratings.\n"
+    "It also keeps a search history and maintains statistics.\n\n"
+    "The list of available commands:\n"
+    "<b><i>/start</i></b> - to restart the bot\n"
+    "<b><i>/help</i></b> - to get detailed information\n"
+    "<b><i>/stats</i></b> - to get statistics\n"
+    "<b><i>/history.</i></b> - to get search history"
 )
 
-STATS_TEXT = "Количество запросов пользователя: {user_name}."
+STATS_TEXT = "Number of user requests: {user_name}."
 
-HISTORY_TEXT = "История пользователя: {user_name}.\n"
+HISTORY_TEXT = "User history: {user_name}.\n"
 
 SEARCH_RESULT_TEXT = (
     "Title: <b><i>{name}</i></b>\n"
