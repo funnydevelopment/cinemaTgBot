@@ -10,4 +10,5 @@ api_client = MovieAPIClient(
     api_url=config.http_client.API_URL,
     api_key=config.http_client.API_KEY,
     api_token=config.http_client.API_TOKEN,
+    movie_url=config.http_client.MOVIE_URL,
 )
