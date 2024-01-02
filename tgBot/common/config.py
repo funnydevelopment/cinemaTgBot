@@ -9,8 +9,16 @@ class TgBot:
 
 
 @dataclass
+class HTTPClient:
+    API_URL: str
+    API_KEY: str
+    API_TOKEN: str
+
+
+@dataclass
 class Config:
     tg_bot: TgBot
+    http_client: HTTPClient
 
 
 def load_config(path: str) -> Config:
@@ -19,4 +27,9 @@ def load_config(path: str) -> Config:
 
     return Config(
         tg_bot=TgBot(BOT_TOKEN=env.str("BOT_TOKEN")),
+        http_client=HTTPClient(
+            API_URL=env.str("API_URL"),
+            API_KEY=env.str("API_KEY"),
+            API_TOKEN=env.str("API_TOKEN"),
+        ),
     )

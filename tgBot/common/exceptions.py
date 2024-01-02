@@ -12,3 +12,7 @@ class UserCreateError(Exception):
 
 class UserAddError(Exception):
     pass
+
+
+class BadRequestError(Exception):
+    pass
