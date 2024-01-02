@@ -14,3 +14,15 @@ HELP_TEXT = (
 STATS_TEXT = "Количество запросов пользователя: {user_name}."
 
 HISTORY_TEXT = "История пользователя: {user_name}.\n"
+
+SEARCH_RESULT_TEXT = (
+    "Title: <b><i>{name}</i></b>\n"
+    "Rating: <b><i>{rating}</i></b>\n"
+    "Overview: <i>{overview}</i>\n"
+    "Watch trailer: <i>{link}</i>"
+)
+
+FAILED_RESULT_TEXT = (
+    "Sorry, we couldn't find anything matching your query. Try adjusting your "
+    "search criteria."
+)
