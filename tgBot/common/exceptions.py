@@ -24,3 +24,15 @@ class AddUserError(Exception):
 
 class AddMovieRequestError(Exception):
     pass
+
+
+class SelectMovieRequestError(Exception):
+    pass
+
+
+class CountMovieRequestError(Exception):
+    pass
+
+
+class ElementIndexError(Exception):
+    pass
