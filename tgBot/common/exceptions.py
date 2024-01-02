@@ -16,3 +16,11 @@ class UserAddError(Exception):
 
 class BadRequestError(Exception):
     pass
+
+
+class AddUserError(Exception):
+    pass
+
+
+class AddMovieRequestError(Exception):
+    pass
