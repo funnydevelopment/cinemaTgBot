@@ -51,21 +51,9 @@ async def history_command(message: types.Message, state: FSMContext):
     await state.set_state(state=CinemaBotState.main_state)
 
 
-@router.message(F.text.lower() == "инструкция")
+@router.message(F.text.lower() == "instructions")
 async def instruction_command(message: types.Message, state: FSMContext):
     await help_command(message, state)
-    await state.set_state(state=CinemaBotState.main_state)
-
-
-@router.message(F.text.lower() == "статистика")
-async def statistic_command(message: types.Message, state: FSMContext):
-    await stats_command(message, state)
-    await state.set_state(state=CinemaBotState.main_state)
-
-
-@router.message(F.text.lower() == "история")
-async def story_command(message: types.Message, state: FSMContext):
-    await history_command(message, state)
     await state.set_state(state=CinemaBotState.main_state)
 
 
