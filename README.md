@@ -1,41 +1,49 @@
 # Movie Bot
 
-Привет! MovieBot - это Telegram бот, который предоставляет информацию о фильмах, а также сохраняет историю поиска и статистику пользователя.
+Hello! MovieBot is a Telegram bot that provides information about movies and also saves the user's search history and 
+statistics.
 
-## Описание
+## Description
 
-MovieBot позволяет пользователям получать следующую информацию о фильмах:
-- Описание фильма
-- Рейтинг фильма
-- Постер фильма
+MovieBot allows users to get the following information about movies:
+- Movie description
+- Movie rating
+- Movie poster
 
-Бот также поддерживает следующий функционал:
-- Сохранение истории поиска пользователя
-- Отслеживание статистики поисков пользователя
+The bot also supports the following functionality:
+- Saving user search history
+- Tracking user search statistics
 
-## Как использовать
+## How to Use
 
-1. Отправьте боту название фильма в чат.
-2. Бот ответит информацией о фильме, включая описание, рейтинг и постер.
+1. Send the bot the name of a movie in the chat.
+2. The bot will respond with information about the movie, including the description, rating, and poster.
 
 ## Команды
 
-- `название фильма` - Ищет информацию о фильме.
-- `/history` - Выводит историю поиска пользователя.
-- `/stats` - Выводит статистику поиска пользователя.
+- `movie name` - Searches for information about a movie.
+- `/history` - Displays the user's search history.
+- `/stats` - Displays search statistics for the user.
+- `/instruction` or `/help`- Displays available commands.
 
-## Установка и настройка
+## Installation and Configuration
 
-- Клонируйте репозиторий:
+- Clone the repository:
 ```bash
 git clone https://github.com/funnydevelopment/cinemaTgBot.git
 ```
-- Установите зависимости:
+- Create and fill in the contents of the `.env` file following the example in `env.example`.
+- Install dependencies:
 ```bash
 cd cinemaTgBot/tgBot
 pip install -r requirements.txt
 ```
-- Запустите бота:
+- Run the bot:
 ```bash
 python bot.py
+```
+- For server deployment:
+```bash
+docker compose build
+docker compose up -d
 ```
