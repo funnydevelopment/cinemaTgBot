@@ -5,11 +5,17 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 
 from common.create_bot import api_client
-from common.exceptions import AddUserError, AddMovieRequestError
+from common.exceptions import (
+    AddUserError,
+    AddMovieRequestError,
+    SelectMovieRequestError,
+    CountMovieRequestError,
+)
 from database import crud as db
 from .states import CinemaBotState
 from . import text_messages as texts
 from . import keyboards as kb
+from . import utils
 
 
 router = Router()
@@ -46,8 +52,17 @@ async def help_command(message: types.Message, state: FSMContext):
 @router.message(Command("stats"))
 async def stats_command(message: types.Message, state: FSMContext):
     user_name, telegram_user_id = message.from_user.full_name, message.from_user.id
+    has_count = 0
+    try:
+        has_count = await db.get_history_count(telegram_user_id=str(telegram_user_id))
+        if has_count:
+            logger.info("The movie history successfully selected.")
+        else:
+            logger.info("Failed select the movie history.")
+    except CountMovieRequestError as error:
+        logger.exception("Error counting movie requests: %s", error)
     await message.answer(
-        text=texts.STATS_TEXT.format(user_name=user_name),
+        text=texts.STATS_TEXT.format(total_count=has_count),
         reply_markup=kb.make_main_menu_kb(),
     )
     await state.set_state(state=CinemaBotState.main_state)
@@ -56,8 +71,21 @@ async def stats_command(message: types.Message, state: FSMContext):
 @router.message(Command("history"))
 async def history_command(message: types.Message, state: FSMContext):
     user_name, telegram_user_id = message.from_user.full_name, message.from_user.id
+    has_history = ""
+    # todo: rewrite exception class
+    try:
+        has_history = await db.get_history(telegram_user_id=str(telegram_user_id))
+        if has_history:
+            logger.info("The movie history successfully selected.")
+        else:
+            logger.info("Failed select the movie history.")
+    except SelectMovieRequestError as error:
+        logger.exception("Error selecting movie requests: %s", error)
+    movie_list = await utils.create_movie_list(has_history)
+    title_text = texts.HISTORY_TEXT.format(user_name=user_name)
+    text = title_text + movie_list
     await message.answer(
-        text=texts.HISTORY_TEXT.format(user_name=user_name),
+        text=text,
         reply_markup=kb.make_main_menu_kb(),
     )
     await state.set_state(state=CinemaBotState.main_state)
@@ -85,7 +113,7 @@ async def history_button_command(message: types.Message, state: FSMContext):
 async def search_movie(message: types.Message, state: FSMContext):
     user_id, movie_name = message.from_user.id, message.text
     try:
-        # todo: sql insert does not work
+        # todo: rewrite exception class
         movie_insert = await db.add_movie_request(
             name=movie_name, telegram_user_id=str(user_id)
         )
