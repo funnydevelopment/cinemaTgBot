@@ -3,9 +3,9 @@ from aiogram import types
 
 def make_main_menu_kb():
     kb = [
-        [types.KeyboardButton(text="История")],
-        [types.KeyboardButton(text="Статистика")],
-        [types.KeyboardButton(text="Инструкция")],
+        [types.KeyboardButton(text="History")],
+        [types.KeyboardButton(text="Stats")],
+        [types.KeyboardButton(text="Instructions")],
     ]
     keyboard = types.ReplyKeyboardMarkup(
         keyboard=kb,
